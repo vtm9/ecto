@@ -990,9 +990,9 @@ defmodule Ecto.Repo do
   The query given to preload may also preload its own associations.
   """
   @doc group: "Schema API"
-  @callback preload(structs_or_struct_or_nil, preloads :: term, opts :: Keyword.t()) ::
-              structs_or_struct_or_nil
-            when structs_or_struct_or_nil: [Ecto.Schema.t()] | Ecto.Schema.t() | nil
+  @callback preload([Ecto.Schema.t()], preloads :: term, opts :: Keyword.t()) :: [Ecto.Schema.t()]
+  @callback preload(Ecto.Schema.t(), preloads :: term, opts :: Keyword.t()) :: Ecto.Schema.t()
+  @callback preload(nil, preloads :: term, opts :: Keyword.t()) :: nil
 
   @doc """
   A user customizable callback invoked for query-based operations.

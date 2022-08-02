@@ -32,8 +32,9 @@ defmodule Ecto.Repo.Preloader do
   @doc """
   Implementation for `Ecto.Repo.preload/2`.
   """
-  @spec preload(structs, atom, atom | list, {adapter_meta :: map, opts :: Keyword.t}) ::
-                structs when structs: [Ecto.Schema.t] | Ecto.Schema.t | nil
+  @spec preload([Ecto.Schema.t], atom, atom | list, {adapter_meta :: map, opts :: Keyword.t}) :: [Ecto.Schema.t]
+  @spec preload(Ecto.Schema.t, atom, atom | list, {adapter_meta :: map, opts :: Keyword.t}) :: Ecto.Schema.t
+  @spec preload(nil, atom, atom | list, {adapter_meta :: map, opts :: Keyword.t}) :: nil
   def preload(nil, _repo_name, _preloads, _tuplet) do
     nil
   end
